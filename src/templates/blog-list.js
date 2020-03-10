@@ -24,9 +24,11 @@ const BlogList = ({ data, pageContext }) => {
             frontmatter: { background, category, date, description, title },
             timeToRead,
             fields: { slug },
+            id,
           },
         }) => (
           <PostItem
+            key={id}
             slug={slug}
             background={background}
             category={category}
@@ -70,6 +72,7 @@ export const query = graphql`
           fields {
             slug
           }
+          id
         }
       }
     }

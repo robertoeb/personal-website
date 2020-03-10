@@ -1,5 +1,5 @@
 import React from "react"
-import { string } from "prop-types"
+import { string, number } from "prop-types"
 
 import * as S from "./styled"
 
@@ -31,7 +31,7 @@ PostItem.propTypes = {
   background: string,
   category: string.isRequired,
   date: string.isRequired,
-  timeToRead: string.isRequired,
+  timeToRead: number.isRequired,
   title: string.isRequired,
   description: string.isRequired,
 }
