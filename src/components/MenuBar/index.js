@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import { Home, Grid } from "@styled-icons/boxicons-solid"
 import {
@@ -9,7 +10,7 @@ import {
 
 import * as S from "./styled"
 
-const MenuBar = () => (
+const MenuBar = ({ toggleTheme }) => (
   <S.MenuBarWrapper>
     <S.MenuBarGroup>
       <S.MenuBarLink to="/" title="Voltar para Home">
@@ -24,8 +25,8 @@ const MenuBar = () => (
       </S.MenuBarLink>
     </S.MenuBarGroup>
     <S.MenuBarGroup>
-      <S.MenuBarItem title="Mudar o tema">
-        <Light />
+      <S.MenuBarItem title="Mudar o tema" onClick={toggleTheme}>
+        <Light className="themeIcon" />
       </S.MenuBarItem>
       <S.MenuBarItem title="Mudar visualização">
         <Grid />
@@ -36,5 +37,9 @@ const MenuBar = () => (
     </S.MenuBarGroup>
   </S.MenuBarWrapper>
 )
+
+MenuBar.propTypes = {
+  toggleTheme: PropTypes.func.isRequired,
+}
 
 export default MenuBar
