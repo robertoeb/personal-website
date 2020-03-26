@@ -12,17 +12,23 @@ import dark from "../../styles/themes/dark"
 import light from "../../styles/themes/light"
 
 const Layout = ({ children }) => {
-  const [isDarkTheme, setTheme] = usePersistedState("darkTheme", true)
+  const [isDarkTheme, setIsDarkTheme] = usePersistedState("darkTheme", true)
+  const [isList, setIsList] = usePersistedState("blogList", true)
 
-  const toggleTheme = () => setTheme(!isDarkTheme)
+  const toggleTheme = () => setIsDarkTheme(!isDarkTheme)
+  const toggleBlogList = () => setIsList(!isList)
 
   return (
     <ThemeProvider theme={isDarkTheme ? dark : light}>
       <S.LayoutWrapper>
         <GlobalStyles />
         <Sidebar />
-        <S.LayoutMain>{children}</S.LayoutMain>
-        <MenuBar toggleTheme={toggleTheme} />
+        <S.LayoutMain id={!isList && "grid"}>{children}</S.LayoutMain>
+        <MenuBar
+          toggleTheme={toggleTheme}
+          toggleBlogList={toggleBlogList}
+          isList={isList}
+        />
       </S.LayoutWrapper>
     </ThemeProvider>
   )

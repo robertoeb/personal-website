@@ -7,10 +7,11 @@ import {
   UpArrowAlt as Arrow,
   Bulb as Light,
 } from "@styled-icons/boxicons-regular"
+import { ThList as List } from "@styled-icons/typicons/ThList"
 
 import * as S from "./styled"
 
-const MenuBar = ({ toggleTheme }) => (
+const MenuBar = ({ toggleTheme, toggleBlogList, isList }) => (
   <S.MenuBarWrapper>
     <S.MenuBarGroup>
       <S.MenuBarLink to="/" title="Voltar para Home">
@@ -28,8 +29,8 @@ const MenuBar = ({ toggleTheme }) => (
       <S.MenuBarItem title="Mudar o tema" onClick={toggleTheme}>
         <Light className="themeIcon" />
       </S.MenuBarItem>
-      <S.MenuBarItem title="Mudar visualização">
-        <Grid />
+      <S.MenuBarItem title="Mudar visualização" onClick={toggleBlogList}>
+        {isList ? <Grid /> : <List />}
       </S.MenuBarItem>
       <S.MenuBarItem title="Ir para o Topo">
         <Arrow />
@@ -40,6 +41,8 @@ const MenuBar = ({ toggleTheme }) => (
 
 MenuBar.propTypes = {
   toggleTheme: PropTypes.func.isRequired,
+  toggleBlogList: PropTypes.func.isRequired,
+  isList: PropTypes.bool.isRequired,
 }
 
 export default MenuBar
