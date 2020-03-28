@@ -3,10 +3,11 @@ const queries = require("./src/utils/algolia_queries")
 
 module.exports = {
   siteMetadata: {
-    title: `Roberto Eustáquio`,
+    title: `Roberto Eustáquio - Desenvolvedor de Software`,
     position: `Desenvolvedor de software`,
     description: `Estudante de Engenharia de Software e um apaixonado por desenvolvimento, com vários anos de experiência na área de Tecnologia da Informação.`,
     author: `@robertoeb`,
+    siteUrl: `https://robertoeb.com`,
   },
   plugins: [
     `gatsby-plugin-transition-link`,
@@ -81,6 +82,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

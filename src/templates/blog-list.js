@@ -19,7 +19,10 @@ const BlogList = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        description="Um blog de um desenvolvedor de software, apaixonado pelo que faz, fã do ecosistema Javascript e novas tecnologias."
+      />
       <S.ListWrapper>
         {postList.map(
           ({
