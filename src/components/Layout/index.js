@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { ThemeProvider } from "styled-components"
 import usePersistedState from "../../utils/usePersistedState"
+import { TransitionPortal } from "gatsby-plugin-transition-link"
 
 import Sidebar from "../Sidebar"
 import MenuBar from "../MenuBar"
@@ -22,13 +23,17 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={isDarkTheme ? dark : light}>
       <S.LayoutWrapper>
         <GlobalStyles />
-        <Sidebar />
+        <TransitionPortal level="top">
+          <Sidebar />
+        </TransitionPortal>
         <S.LayoutMain id={!isList && "grid"}>{children}</S.LayoutMain>
-        <MenuBar
-          toggleTheme={toggleTheme}
-          toggleBlogList={toggleBlogList}
-          isList={isList}
-        />
+        <TransitionPortal level="top">
+          <MenuBar
+            toggleTheme={toggleTheme}
+            toggleBlogList={toggleBlogList}
+            isList={isList}
+          />
+        </TransitionPortal>
       </S.LayoutWrapper>
     </ThemeProvider>
   )

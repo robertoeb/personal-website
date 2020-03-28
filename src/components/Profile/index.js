@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import { ThemeContext } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Avatar from "../Avatar"
@@ -21,9 +22,17 @@ const Profile = () => {
     }
   `)
 
+  const { colors } = useContext(ThemeContext)
+
   return (
     <S.ProfileWrapper>
-      <S.ProfileLink to="/">
+      <S.ProfileLink
+        cover
+        direction="left"
+        bg={colors.background}
+        duration={0.6}
+        to="/"
+      >
         <Avatar />
         <S.ProfileAuthor>
           {title}
