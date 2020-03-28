@@ -29,7 +29,11 @@ const MenuBar = ({ toggleTheme, toggleBlogList, isList }) => (
       <S.MenuBarItem title="Mudar o tema" onClick={toggleTheme}>
         <Light className="themeIcon" />
       </S.MenuBarItem>
-      <S.MenuBarItem title="Mudar visualização" onClick={toggleBlogList}>
+      <S.MenuBarItem
+        title="Mudar visualização"
+        onClick={toggleBlogList}
+        className="display"
+      >
         {isList ? <Grid /> : <List />}
       </S.MenuBarItem>
       <S.MenuBarItem title="Ir para o Topo">
